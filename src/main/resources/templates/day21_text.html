@@ -1,0 +1,18 @@
+<!-- day21 if文をHTMLに埋め込む -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header::header_part"></div>
+	<h1 th:text="${suzuki}" th:if="${suzuki}">ようこそ鈴木Java五郎さん!</h1>
+	<form action="/day21" method="POST">
+	<h2>鈴木Java五郎さんですか?</h2>
+	<input type="submit", value="はい">
+	<label><br>入力</label><input type="text" name="inputVal">
+	<input type="submit",value="送信">
+	</form>
+</body>
+</html>

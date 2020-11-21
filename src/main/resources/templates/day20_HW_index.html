@@ -1,0 +1,18 @@
+<!-- day20 HomeWork -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>day20_HomeWork Upstairs</title>
+<link th:href="@{/css/day20_HW_index.css}" rel="stylesheet">
+</head>
+
+<body>
+<h1　th:text = "${result}">階上の計算をします。</h1>
+<h2 th:text = "${Value}"></h2>
+<form action="/day20" method="POST">
+<label>階上したい値を入れてください</label><input type ="text" name="intVal" th:value="${Value}">
+<input type="submit", value="送信">
+</form>
+</body>
+
+</html>

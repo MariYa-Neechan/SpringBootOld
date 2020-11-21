@@ -1,0 +1,21 @@
+<!-- day21今日の宿題【素数判定マシーン】素数の場合 -->
+<!-- 作成順序
+1.表示させるHTMLの用意をする
+2.URLで整数値を入力したら、その入力した値をnumberに格納するためのMainControllerを用意
+3.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--div Class dayHW_number21 → 素数ではない場合のテンプレートフラグメント -->
+	<div th:include="day21HW_number2::notnumber_part"></div>
+	<h1>素数判定マシーン</h1>
+	<form action="/day21HW_number" method="POST">
+	<h2 th:text="${number}" th:if="${number}">は素数です！</h2>
+	</form>
+</body>
+</html>
