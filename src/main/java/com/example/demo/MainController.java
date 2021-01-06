@@ -79,12 +79,26 @@ return mv;
 }
 
 
-
 //day21_今日の宿題【素数判定マシーン】（URLに数字を入力するとその値が{number}に代入）
-@RequestMapping("/{number}")
-public ModelAndView day21HW_number(@PathVariable int num,ModelAndView mv) {
-String line="";
-mv.addObject("number", line);
+@RequestMapping("/day21HW_number/{number}")
+public ModelAndView day21HW_number(@PathVariable int number,ModelAndView mv) {
+
+//入力した値が1より大きい整数は素数ではない
+if(number<2) {
+	mv.addObject("number", number + "は素数ではありません");
+	mv.setViewName("day21HW_number");
+	return mv;
+}
+//1と自分自身でしか割り切れる数が存在する場合、素数ではない。
+for(int i = 2; i < number; i++ ) {
+	if(number% i == 0) {
+		mv.addObject("number", number +  "は素数ではありません");
+		mv.setViewName("day21HW_number");
+		return mv;
+	}
+}
+//割り切れる数がない場合、素数である。
+mv.addObject("number", number + "は素数です");
 mv.setViewName("day21HW_number");
 return mv;
 }
@@ -103,5 +117,24 @@ public ModelAndView indexPost(ModelAndView mv) {
 	mv.setViewName("day22_index");
 	return mv;
 }
+
+
+//FormSample（ラジオボタンとドロップダウンリストの動きを確認）
+@RequestMapping(value="/form",method = RequestMethod.GET)
+public ModelAndView form(ModelAndView mv) {
+	mv.addObject("thInput","あなたの情報を登録します。");
+	mv.setViewName("formsample");
+	return mv;
+}
+@RequestMapping(value="/form",method = RequestMethod.POST)
+public ModelAndView form(ModelAndView mv,@RequestParam("myName")String name,@RequestParam("radio1")String gender,@RequestParam("myJob")String job) {
+	String message = "名前は"+ name + "さん、" + "性別は" + gender + "で、職業は" + job +"ですね。";
+	mv.addObject("thInput", message);
+	mv.setViewName("formsample");
+	return mv;
+}
+
+
+
 
 }

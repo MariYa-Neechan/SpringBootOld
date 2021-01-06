@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "Ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>FormSample</title>
+	</head>
+	<body>
+		<h1>Form Sample Application</h1>
+		<h2 th:text = "${thInput}">あなたの情報を登録します。</h2>
+		<form action="/form" method="POST">
+			<!-- 名前入力テキスト -->
+			<p>名前</p>
+			<input type = "text" name="myName">
+			<!-- 性別ラジオボタン -->
+			<p>性別</p>
+			<input id="radioMale" type = "radio" name="radio1" value="男性">
+			<label for="radioMale">男性</label>
+			<input id="radioFemale" type = "radio" name="radio1" value="女性">
+			<label for="radioFemale">女性</label>
+			<!-- 職業ドロップダウンメニュー -->
+			<p>職業</p>
+			<select id="selelct1" name="myJob">
+				<option value="経営者">経営者</option>
+				<option value="会社員">会社員</option>
+				<option value="フリーランス">フリーランス</option>
+				<option value="学生">学生</option>
+			</select>
+			<input type="submit" value="送信">
+			</form>
+	</body>
+</html>
